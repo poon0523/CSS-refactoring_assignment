@@ -234,22 +234,38 @@ body {
 /* メニューアイテムコンポーネント */
 .menu_list {
   display: flex;
+  flex-direction: column; /*menuページの商品は一段に1つずつ表示させたいのでrow→columnを指定*/
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
 .menu_list_recommended {
   /* トップページのメニューリストには別途paddingの設定（マルチクラス） */
+  /*menu_listクラスをtopページとmenuページで共通利用していたがflex-directionが異なるためmenu_list_recommendedにmenu_listの内容をマージし、topページ用のクラスとして更新*/
   padding-bottom: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .menu_item {
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+  margin-bottom: 20px;
+}
+
+.recommended_menu_item {
+  /*menu_itemクラスをtopページとmenuページで共通利用していたがwidthが異なるためtopページ用にクラスを新規作成*/
   width: 49%;
   display: flex;
   flex-direction: row-reverse;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
   margin-bottom: 20px;
 }
+
 .menu_item_content {
   width: 45%;
   padding: 10px;
